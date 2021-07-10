@@ -16,6 +16,7 @@ public class MainPage extends AppCompatActivity {
 
     private Button btTest;
     private Button btLogOut;
+    private Button btProfile;
 
     @Override
     public void onBackPressed() {
@@ -50,7 +51,13 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
-
+        btProfile = findViewById(R.id.btProfile);
+        btProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchProfilePage();
+            }
+        });
     }
 
     private void launchTestPage() {
@@ -60,6 +67,11 @@ public class MainPage extends AppCompatActivity {
 
     private void launchAuthPage() {
         Intent intent = new Intent(MainPage.this, AuthPage.class);
+        startActivity(intent);
+    }
+
+    private void launchProfilePage() {
+        Intent intent = new Intent(MainPage.this, ProfilePage.class);
         startActivity(intent);
     }
 }

@@ -23,7 +23,7 @@
         android:layout_marginEnd="81dp"
         android:layout_marginRight="81dp"
         android:layout_marginBottom="270dp"
-        android:text="Button" />
+        android:text="Webview Test" />
 
     <Button
         android:id="@+id/btLogOut"
@@ -39,5 +39,21 @@
         android:layout_marginTop="69dp"
         android:layout_marginEnd="177dp"
         android:layout_marginRight="177dp"
-        android:text="Button" />
+        android:text="Log Out" />
+
+    <Button
+        android:id="@+id/btProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="185dp"
+        android:layout_marginLeft="185dp"
+        android:layout_marginEnd="138dp"
+        android:layout_marginRight="138dp"
+        android:layout_marginBottom="105dp"
+        android:text="Profile" />
 </RelativeLayout>

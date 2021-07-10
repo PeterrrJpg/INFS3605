@@ -15,8 +15,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class AuthPage extends AppCompatActivity {
@@ -59,6 +62,7 @@ public class AuthPage extends AppCompatActivity {
                 Log.e("TAG", "isVerified = " + user.isEmailVerified());
                 Log.e("TAG", "isNewUser = " + idpResponse.isNewUser());
                 if (idpResponse.isNewUser()) {
+                    writeNewUser();
                     user.sendEmailVerification();
                 }
 
@@ -92,5 +96,24 @@ public class AuthPage extends AppCompatActivity {
     private void refresh() {
         Intent intent = new Intent(AuthPage.this, AuthPage.class);
         startActivity(intent);
+    }
+
+    private void writeNewUser() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        String email = user.getEmail();
+
+        HashMap<Object, String> hashMap = new HashMap<>();
+        hashMap.put("uid", uid);
+        hashMap.put("email", email);
+        hashMap.put("name", "");
+        hashMap.put("phone", "");
+        hashMap.put("image", "");
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("Users");
+        ref.child(uid).setValue(hashMap);
+        Log.e("TAG", "uid = " + uid);
+        Log.e("TAG", "email = " + email);
     }
 }
