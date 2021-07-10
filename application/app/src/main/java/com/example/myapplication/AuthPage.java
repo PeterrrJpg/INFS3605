@@ -102,18 +102,21 @@ public class AuthPage extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
         String email = user.getEmail();
+        String name = user.getDisplayName();
 
         HashMap<Object, String> hashMap = new HashMap<>();
         hashMap.put("uid", uid);
         hashMap.put("email", email);
-        hashMap.put("name", "");
+        hashMap.put("name", name);
         hashMap.put("phone", "");
-        hashMap.put("image", "");
+        hashMap.put("profile", "");
+        hashMap.put("cover", "");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Users");
         ref.child(uid).setValue(hashMap);
         Log.e("TAG", "uid = " + uid);
         Log.e("TAG", "email = " + email);
+        Log.e("TAG", "name = " + name);
     }
 }

@@ -28,6 +28,8 @@ public class MainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        System.out.println("Hellonadsfbakdbfl");
+
         btTest = findViewById(R.id.btTest);
         btTest.setOnClickListener(new View.OnClickListener() {
             @Override
