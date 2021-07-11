@@ -19,16 +19,9 @@ public class MainPage extends AppCompatActivity {
     private Button btProfile;
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        System.out.println("Hellonadsfbakdbfl");
 
         btTest = findViewById(R.id.btTest);
         btTest.setOnClickListener(new View.OnClickListener() {
@@ -75,5 +68,12 @@ public class MainPage extends AppCompatActivity {
     private void launchProfilePage() {
         Intent intent = new Intent(MainPage.this, ProfilePage.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+        finish();
+        super.onBackPressed();
     }
 }

@@ -16,6 +16,7 @@ import android.content.pm.PackageManager;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
@@ -115,12 +116,12 @@ public class ProfilePage extends AppCompatActivity {
                     tvEmail.setText(email);
                     tvPhone.setText(phone);
                     try {
-                        Picasso.get().load(profile).into(ivProfile);
+                        Picasso.get().load(profile).fit().centerCrop().into(ivProfile);
                     } catch (Exception e) {
                         Picasso.get().load(R.drawable.ic_default_background).into(ivProfile);
                     }
                     try {
-                        Picasso.get().load(cover).into(ivCover);
+                        Picasso.get().load(cover).fit().centerCrop().into(ivCover);
                     } catch (Exception e) {
                     }
                 }
@@ -138,10 +139,23 @@ public class ProfilePage extends AppCompatActivity {
                 showEditProfileDialog();
             }
         });
+
+        final ProgressDialog progress = new ProgressDialog(ProfilePage.this);
+        progress.setTitle("Loading User Profile");
+        progress.setMessage("Please wait while your profile is being loaded");
+        progress.show();
+        Runnable progressRunnable = new Runnable() {
+            @Override
+            public void run() {
+                progress.cancel();
+            }
+        };
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 3050);
     }
 
     private void showEditProfileDialog() {
-        String options[] = {"Edit Profile Picture", "Edit Cover Picture", "Edit Name", "Edit Phone"};
+        String options[] = {"Edit Profile Picture", "Edit Cover Picture", "Edit Name", "Add/Edit Phone"};
         AlertDialog.Builder builder = new AlertDialog.Builder(ProfilePage.this);
         builder.setTitle("Choose an action");
         builder.setItems(options, new DialogInterface.OnClickListener() {

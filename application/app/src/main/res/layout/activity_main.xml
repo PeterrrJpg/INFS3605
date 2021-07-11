@@ -9,51 +9,24 @@
 
     <Button
         android:id="@+id/btTest"
-        android:layout_width="254dp"
-        android:layout_height="226dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="235dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginRight="81dp"
-        android:layout_marginBottom="270dp"
-        android:text="Webview Test" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Webview Test"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/btLogOut"/>
 
     <Button
         android:id="@+id/btLogOut"
         android:layout_width="wrap_content"
-        android:layout_height="93dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="146dp"
-        android:layout_marginLeft="146dp"
-        android:layout_marginTop="69dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginRight="177dp"
-        android:text="Log Out" />
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:layout_centerInParent="true" />
 
     <Button
         android:id="@+id/btProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="185dp"
-        android:layout_marginLeft="185dp"
-        android:layout_marginEnd="138dp"
-        android:layout_marginRight="138dp"
-        android:layout_marginBottom="105dp"
-        android:text="Profile" />
+        android:text="Profile"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/btLogOut" />
 </RelativeLayout>
