@@ -111,6 +111,7 @@ public class AuthPage extends AppCompatActivity {
         hashMap.put("phone", "");
         hashMap.put("profile", "");
         hashMap.put("cover", "");
+        hashMap.put("highscore", "0");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Users");
@@ -118,5 +119,12 @@ public class AuthPage extends AppCompatActivity {
         Log.e("TAG", "uid = " + uid);
         Log.e("TAG", "email = " + email);
         Log.e("TAG", "name = " + name);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+        finish();
+        super.onBackPressed();
     }
 }

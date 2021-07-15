@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvDisplayUsernameLeaderboard"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginLeft="81dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginRight="98dp"
+        android:gravity="center"
+        android:text="username"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvDisplayScoreLeaderboard"
+        app:layout_constraintStart_toEndOf="@+id/tvDisplayRankingLeaderboard"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDisplayScoreLeaderboard"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDisplayUsernameLeaderboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvDisplayUsernameLeaderboard"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDisplayRankingLeaderboard"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDisplayUsernameLeaderboard"
+        app:layout_constraintEnd_toStartOf="@+id/tvDisplayUsernameLeaderboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

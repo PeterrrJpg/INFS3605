@@ -29,4 +29,12 @@
         android:text="Profile"
         android:layout_centerInParent="true"
         android:layout_below="@+id/btLogOut" />
+
+    <Button
+        android:id="@+id/btQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quiz"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/btProfile" />
 </RelativeLayout>
