@@ -151,7 +151,7 @@ public class ProfilePage extends AppCompatActivity {
             }
         };
         Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 3050);
+        pdCanceller.postDelayed(progressRunnable, 3550);
     }
 
     private void showEditProfileDialog() {

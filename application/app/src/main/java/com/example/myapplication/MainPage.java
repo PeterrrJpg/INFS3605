@@ -18,6 +18,7 @@ public class MainPage extends AppCompatActivity {
     private Button btLogOut;
     private Button btProfile;
     private Button btQuiz;
+    private Button btLeaderboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,14 @@ public class MainPage extends AppCompatActivity {
                 launchQuizPage();
             }
         });
+
+        btLeaderboard = findViewById(R.id.btLeaderboard);
+        btLeaderboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchLeaderboardPage();
+            }
+        });
     }
 
     private void launchTestPage() {
@@ -81,6 +90,11 @@ public class MainPage extends AppCompatActivity {
 
     private void launchQuizPage() {
         Intent intent = new Intent(MainPage.this, QuizPage.class);
+        startActivity(intent);
+    }
+
+    private void launchLeaderboardPage() {
+        Intent intent = new Intent(MainPage.this, LeaderboardPage.class);
         startActivity(intent);
     }
 
