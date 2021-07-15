@@ -90,20 +90,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFinal" />
 
-    <TextView
-        android:id="@+id/tvCalculation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="Each question is 5 points"
-        android:textColor="#5E4F30"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFinalScore" />
-
     <Button
         android:id="@+id/btPlayAgain"
         android:layout_width="157dp"
@@ -124,7 +110,7 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCalculation" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFinalScore" />
 
     <TextView
         android:id="@+id/tvHighscore"

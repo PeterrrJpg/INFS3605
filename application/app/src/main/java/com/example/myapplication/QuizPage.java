@@ -23,7 +23,7 @@ public class QuizPage extends AppCompatActivity {
     private int timerCount;
     private int currentQuestion;
     private final int ONE_SECOND = 1000;
-    private final int GAME_TIME = 15000;
+    private final int GAME_TIME = 30000;
 
     private TextView tvQuestion;
     private TextView tvTimer;

@@ -16,6 +16,20 @@ public class Quiz {
         options.add(new Pair("BOWRAL", false));
         options.add(new Pair("LABEL", false));
         questions.add(new Question("What is \"boy\" in ngunnwal language?", options));
+
+        options = new ArrayList<>();
+        options.add(new Pair("ŋumuŋ", false));
+        options.add(new Pair("nhun", false));
+        options.add(new Pair("yerra", false));
+        options.add(new Pair("nyigity", true));
+        questions.add(new Question("What is \"nose\" in ngunnwal language?", options));
+
+        options = new ArrayList<>();
+        options.add(new Pair("mirri", true));
+        options.add(new Pair("wagulan", false));
+        options.add(new Pair("binit-binit", false));
+        options.add(new Pair("gudamaŋ", false));
+        questions.add(new Question("What is \"dog\" in ngunnwal language?", options));
     }
 
     public static Quiz getInstance() {
