@@ -45,4 +45,12 @@
         android:text="Leaderboard"
         android:layout_centerInParent="true"
         android:layout_below="@+id/btQuiz" />
+
+    <Button
+        android:id="@+id/btDictionary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dictionary"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/btTest"/>
 </RelativeLayout>

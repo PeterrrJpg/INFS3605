@@ -19,6 +19,7 @@ public class MainPage extends AppCompatActivity {
     private Button btProfile;
     private Button btQuiz;
     private Button btLeaderboard;
+    private Button btDictionary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,14 @@ public class MainPage extends AppCompatActivity {
                 launchLeaderboardPage();
             }
         });
+
+        btDictionary = findViewById(R.id.btDictionary);
+        btDictionary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchDictionaryPage();
+            }
+        });
     }
 
     private void launchTestPage() {
@@ -95,6 +104,11 @@ public class MainPage extends AppCompatActivity {
 
     private void launchLeaderboardPage() {
         Intent intent = new Intent(MainPage.this, LeaderboardPage.class);
+        startActivity(intent);
+    }
+
+    private void launchDictionaryPage() {
+        Intent intent = new Intent(MainPage.this, DictionaryPage.class);
         startActivity(intent);
     }
 
