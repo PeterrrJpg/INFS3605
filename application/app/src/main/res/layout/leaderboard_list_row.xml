@@ -29,9 +29,9 @@
         android:text="0"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tvDisplayUsernameLeaderboard"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDisplayRankingLeaderboard"
         app:layout_constraintStart_toEndOf="@+id/tvDisplayUsernameLeaderboard"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/tvDisplayRankingLeaderboard" />
 
     <TextView
         android:id="@+id/tvDisplayRankingLeaderboard"

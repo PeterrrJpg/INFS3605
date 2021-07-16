@@ -3,27 +3,30 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="MULTILINGUE"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".LeaderboardPage"></activity>
-        <activity android:name=".ResultsPage" />
-        <activity android:name=".QuizPage" />
-        <activity android:name=".ProfilePage" />
-        <activity android:name=".AuthPage">
+        <activity
+            android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LeaderboardPage" />
+        <activity android:name=".ResultsPage" />
+        <activity android:name=".QuizPage" />
+        <activity android:name=".ProfilePage" />
+        <activity android:name=".AuthPage" />
         <activity android:name=".TestPage" />
         <activity android:name=".MainPage" />
     </application>
