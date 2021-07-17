@@ -98,6 +98,27 @@ public class ResultsPage extends AppCompatActivity {
 
                         }
                     });
+        } else if (language.equals("all")) {
+            mDatabase.child("Users").child(mUser.getUid()).child("all_highscore")
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            prevHighscore = Integer.parseInt(snapshot.getValue().toString());
+
+                            if (prevHighscore >= Integer.parseInt(finalScore)) {
+                                tvHighscore.setText(String.valueOf(prevHighscore));
+                            } else {
+                                tvHigh.setText("New Highscore");
+                                tvHighscore.setText(finalScore);
+                                mDatabase.child("Users").child(mUser.getUid()).child("all_highscore").setValue(finalScore);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
         }
 
         tvScore.setText(score);
@@ -123,6 +144,9 @@ public class ResultsPage extends AppCompatActivity {
             startActivity(intent);
         } else if (language.equals("ngarigo")) {
             Intent intent = new Intent(this, NgarigoQuizPage.class);
+            startActivity(intent);
+        } else if (language.equals("all")) {
+            Intent intent = new Intent(this, AllQuizPage.class);
             startActivity(intent);
         }
     }

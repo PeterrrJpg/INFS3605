@@ -113,6 +113,7 @@ public class AuthPage extends AppCompatActivity {
         hashMap.put("cover", "");
         hashMap.put("ngunnawal_highscore", "0");
         hashMap.put("ngarigo_highscore", "0");
+        hashMap.put("all_highscore", "0");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Users");

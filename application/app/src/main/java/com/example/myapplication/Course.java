@@ -29,6 +29,7 @@ public class Course {
 
     public static ArrayList<Course> getCourses() {
         ArrayList<Course> courses = new ArrayList<>();
+        courses.add(new Course("ALL", R.drawable.all));
         courses.add(new Course("Ngunnawal", R.drawable.ngunnawal));
         courses.add(new Course("Ngarigo", R.drawable.ngarigo));
         courses.add(new Course("Sample 1", R.drawable.sample));

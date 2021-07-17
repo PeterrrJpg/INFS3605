@@ -41,6 +41,13 @@ public class LeaderboardPage extends AppCompatActivity {
 
     public static ArrayList<Leaderboard> leaderboard2;
 
+    // ALL language
+    private RecyclerView mRecyclerview3;
+    private LeaderboardAdapter mAdapter3;
+    private RecyclerView.LayoutManager layoutManager3;
+
+    public static ArrayList<Leaderboard> leaderboard3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +81,19 @@ public class LeaderboardPage extends AppCompatActivity {
         mRecyclerview2.setAdapter(mAdapter2);
 
         setLeaderboardNgarigo();
+
+        // ALL
+        leaderboard3 = new ArrayList<>();
+
+        mRecyclerview3 = findViewById(R.id.rvLeaderboardAll);
+        mRecyclerview3.setHasFixedSize(true);
+        layoutManager3 = new LinearLayoutManager(this);
+        mRecyclerview3.setLayoutManager(layoutManager3);
+
+        mAdapter3 = new LeaderboardAdapter(new ArrayList<>());
+        mRecyclerview3.setAdapter(mAdapter3);
+
+        setLeaderboardALL();
 
         final ProgressDialog progress = new ProgressDialog(this);
         progress.setTitle("Loading Leaderboard");
@@ -143,6 +163,37 @@ public class LeaderboardPage extends AppCompatActivity {
                             }
                         });
                         mAdapter2.setData(leaderboard2);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
+    private void setLeaderboardALL() {
+        mDatabase.child("Users")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            String name = ((HashMap) data.getValue()).get("name").toString();
+                            int score = Integer.parseInt(((HashMap) data.getValue()).get("all_highscore").toString());
+                            String profile = ((HashMap) data.getValue()).get("profile").toString();
+                            Leaderboard user = new Leaderboard(name, score, profile);
+                            leaderboard3.add(user);
+                        }
+                        Collections.sort((List) leaderboard2, new Comparator<Leaderboard>() {
+                            @Override
+                            public int compare(Leaderboard o1, Leaderboard o2) {
+                                if (o2.getHighscore().compareTo(o1.getHighscore()) == 0) {
+                                    return -1;
+                                }
+                                return o2.getHighscore().compareTo(o1.getHighscore());
+                            }
+                        });
+                        mAdapter3.setData(leaderboard3);
                     }
 
                     @Override

@@ -8,6 +8,7 @@
     tools:context=".ProfilePage">
 
     <ScrollView
+        android:id="@+id/scProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -19,14 +20,13 @@
                 android:id="@+id/ivCoverPic"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:background="@color/colorPrimaryDark">
-            </ImageView>
+                android:background="@color/colorPrimaryDark"></ImageView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="100dp">
+                android:layout_marginTop="100dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/ivProfilePic"
@@ -36,7 +36,7 @@
                     android:layout_marginLeft="20dp"
                     android:background="@color/colorPrimary"
                     android:padding="5dp"
-                    android:src="@drawable/ic_default_background"/>
+                    android:src="@drawable/ic_default_background" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -47,30 +47,30 @@
                         android:id="@+id/tvName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Name"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="5dp"
-                        android:textSize="25sp"
-                        android:textColor="@color/white"/>
+                        android:text="Name"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
 
                     <TextView
                         android:id="@+id/tvEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Email"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:textColor="@color/white"/>
+                        android:text="Email"
+                        android:textColor="@color/white" />
 
                     <TextView
                         android:id="@+id/tvPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Phone"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:textColor="@color/white"/>
+                        android:text="Phone"
+                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
@@ -79,6 +79,88 @@
         </RelativeLayout>
 
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvProfileHighscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scProfile"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Highscore"
+        android:textSize="25sp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:id="@+id/tvProfileALLHighscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProfileHighscore"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:text="ALL Language"
+        android:textSize="20sp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/tvProfileALLHighscoreValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProfileALLHighscore"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="10"
+        android:textSize="20sp"></TextView>
+
+    <TextView
+        android:id="@+id/tvProfileNgunnawalHighscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProfileALLHighscoreValue"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dp"
+        android:text="Ngunnawal Language"
+        android:textSize="20sp"></TextView>
+
+    <TextView
+        android:id="@+id/tvProfileNgunnawalHighscoreValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProfileNgunnawalHighscore"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="10"
+        android:textSize="20sp"></TextView>
+
+    <TextView
+        android:id="@+id/tvProfileNgarigoHighscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProfileNgunnawalHighscoreValue"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dp"
+        android:text="Ngunnawal Language"
+        android:textSize="20sp"></TextView>
+
+    <TextView
+        android:id="@+id/tvProfileNgarigoHighscoreValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProfileNgarigoHighscore"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="10"
+        android:textSize="20sp"></TextView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btEdit"

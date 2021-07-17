@@ -9,18 +9,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class HomePage extends AppCompatActivity {
-
+    private FirebaseUser mUser;
+    
     private Button btLogOut;
     private Button btProfile;
     private Button btLeaderboard;
+    private TextView tvUsername;
 
     private RecyclerView languageRecyclerview;
     private LanguageAdapter lAdapter;
@@ -34,6 +41,11 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        tvUsername = findViewById(R.id.tvHomeUsername);
+        tvUsername.setText(mUser.getDisplayName());
 
         languageRecyclerview = findViewById(R.id.rvLanguage);
         languageRecyclerview.setHasFixedSize(true);
@@ -62,9 +74,11 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View view, String language) {
                 if (language.equals("Ngunnawal")) {
-                    launchNgunnawalQuizePage();
+                    launchNgunnawalQuizPage();
                 } else if (language.equals("Ngarigo")) {
-                    launchNgarigoQuizePage();
+                    launchNgarigoQuizPage();
+                } else if (language.equals("ALL")) {
+                    launchAllQuizPage();
                 }
             }
         };
@@ -130,12 +144,17 @@ public class HomePage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void launchNgunnawalQuizePage() {
+    private void launchAllQuizPage() {
+        Intent intent = new Intent(HomePage.this, AllQuizPage.class);
+        startActivity(intent);
+    }
+
+    private void launchNgunnawalQuizPage() {
         Intent intent = new Intent(HomePage.this, NgunnawalQuizPage.class);
         startActivity(intent);
     }
 
-    private void launchNgarigoQuizePage() {
+    private void launchNgarigoQuizPage() {
         Intent intent = new Intent(HomePage.this, NgarigoQuizPage.class);
         startActivity(intent);
     }

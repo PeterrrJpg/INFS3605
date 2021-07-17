@@ -53,6 +53,7 @@ public class ProfilePage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private FirebaseDatabase mDB;
+    private DatabaseReference mDatabase;
     private DatabaseReference mRef;
     private StorageReference mSRef;
     private String storagePath = "Users_Profile_Cover_Imgs/";
@@ -62,6 +63,9 @@ public class ProfilePage extends AppCompatActivity {
     private TextView tvName;
     private TextView tvEmail;
     private TextView tvPhone;
+    private TextView tvAllHighscore;
+    private TextView tvNgunnawalHighscore;
+    private TextView tvNgarigoHighscore;
     private FloatingActionButton btEdit;
 
     private ProgressDialog pd;
@@ -86,6 +90,7 @@ public class ProfilePage extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         mDB = getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         mRef = mDB.getReference("Users");
         mSRef = FirebaseStorage.getInstance().getReference();
 
@@ -97,7 +102,58 @@ public class ProfilePage extends AppCompatActivity {
         tvName = findViewById(R.id.tvName);
         tvEmail = findViewById(R.id.tvEmail);
         tvPhone = findViewById(R.id.tvPhone);
+        tvAllHighscore = findViewById(R.id.tvProfileALLHighscoreValue);
+        tvNgunnawalHighscore = findViewById(R.id.tvProfileNgunnawalHighscoreValue);
+        tvNgarigoHighscore = findViewById(R.id.tvProfileNgarigoHighscoreValue);
         btEdit = findViewById(R.id.btEdit);
+
+        mDatabase.child("Users").child(mUser.getUid()).child("all_highscore")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String result = snapshot.getValue().toString();
+                        if (result != null) {
+                            tvAllHighscore.setText(result);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        mDatabase.child("Users").child(mUser.getUid()).child("ngunnawal_highscore")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String result = snapshot.getValue().toString();
+                        if (result != null) {
+                            tvNgunnawalHighscore.setText(result);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        mDatabase.child("Users").child(mUser.getUid()).child("ngarigo_highscore")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String result = snapshot.getValue().toString();
+                        if (result != null) {
+                            tvNgarigoHighscore.setText(result);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
         pd = new ProgressDialog(ProfilePage.this);
 

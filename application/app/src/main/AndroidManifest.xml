@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <activity android:name=".AllQuizPage"></activity>
         <activity android:name=".NgunnawalInfoPage" />
         <activity android:name=".NgarigoInfoPage" />
         <activity android:name=".NgarigoQuizPage" />
