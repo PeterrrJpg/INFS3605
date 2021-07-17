@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,7 +23,6 @@ public class MainPage extends AppCompatActivity {
     private Button btProfile;
     private Button btQuiz;
     private Button btLeaderboard;
-    private Button btDictionary;
 
     private RecyclerView languageRecyclerview;
     private LanguageAdapter lAdapter;
@@ -47,7 +45,9 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View view, String name) {
                 if (name.equals("Ngunnawal")) {
-                    launchDictionaryPage();
+                    launchNgunnawalDictionaryPage();
+                } else if (name.equals("Ngarigo")) {
+                    launchNgarigoDictionaryPage();
                 }
             }
         };
@@ -111,14 +111,6 @@ public class MainPage extends AppCompatActivity {
                 launchLeaderboardPage();
             }
         });
-
-        btDictionary = findViewById(R.id.btDictionary);
-        btDictionary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                launchDictionaryPage();
-            }
-        });
     }
 
     private void launchTestPage() {
@@ -146,8 +138,13 @@ public class MainPage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void launchDictionaryPage() {
-        Intent intent = new Intent(MainPage.this, DictionaryPage.class);
+    private void launchNgunnawalDictionaryPage() {
+        Intent intent = new Intent(MainPage.this, NgunnawalDictionaryPage.class);
+        startActivity(intent);
+    }
+
+    private void launchNgarigoDictionaryPage() {
+        Intent intent = new Intent(MainPage.this, NgarigoDictionaryPage.class);
         startActivity(intent);
     }
 

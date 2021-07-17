@@ -257,4 +257,18 @@ public class Dictionary {
         ngunnawal.add(new Dictionary("conceal", "buddai", "VERB"));
         return ngunnawal;
     }
+
+    public static ArrayList<Dictionary> getNgarigo() {
+        ArrayList<Dictionary> ngarigo = new ArrayList<>();
+        ngarigo.add(new Dictionary("man", "marinj", "PEOPLE"));
+        ngarigo.add(new Dictionary("doctor", "budira", "PEOPLE"));
+        ngarigo.add(new Dictionary("boy", "burubal", "PEOPLE"));
+        ngarigo.add(new Dictionary("elder brother", "djidjaŋ", "PEOPLE"));
+        ngarigo.add(new Dictionary("younger brother", "duŋan", "PEOPLE"));
+        ngarigo.add(new Dictionary("elder sister", "ŋaman", "PEOPLE"));
+        ngarigo.add(new Dictionary("younger sister", "galan", "PEOPLE"));
+        ngarigo.add(new Dictionary("woman", "balan", "PEOPLE"));
+        ngarigo.add(new Dictionary("girl", "malaŋan", "PEOPLE"));
+        return ngarigo;
+    }
 }

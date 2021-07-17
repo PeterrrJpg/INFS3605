@@ -40,7 +40,6 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:text="Profile"
-        app:layout_constraintBottom_toTopOf="@+id/btDictionary"
         app:layout_constraintStart_toEndOf="@+id/btLeaderboard"
         app:layout_constraintTop_toTopOf="@+id/btLeaderboard" />
 
@@ -50,11 +49,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btProfile"
         android:layout_centerInParent="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
         android:text="Quiz"
-        app:layout_constraintBottom_toBottomOf="@+id/btDictionary"
-        app:layout_constraintStart_toEndOf="@+id/btDictionary"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btLeaderboard" />
 
     <Button
@@ -69,18 +68,6 @@
         android:text="Leaderboard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btDictionary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btTest"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Dictionary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btLeaderboard" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLanguage"
@@ -98,12 +85,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="Dictionary"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btDictionary" />
+        app:layout_constraintTop_toBottomOf="@+id/btQuiz" />
 
     <TextView
         android:id="@+id/textView2"

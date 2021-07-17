@@ -12,7 +12,7 @@ import android.widget.SearchView;
 
 import java.util.ArrayList;
 
-public class DictionaryPage extends AppCompatActivity {
+public class NgunnawalDictionaryPage extends AppCompatActivity {
     private RecyclerView mRecyclerview;
     private DictionaryAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -20,9 +20,9 @@ public class DictionaryPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dictionary_page);
+        setContentView(R.layout.activity_ngunnawal_dictionary_page);
 
-        mRecyclerview = findViewById(R.id.rvDictionary);
+        mRecyclerview = findViewById(R.id.rvNgunnawalDictionary);
         mRecyclerview.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         mRecyclerview.setLayoutManager(layoutManager);
