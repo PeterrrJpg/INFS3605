@@ -13,16 +13,22 @@ import java.util.ArrayList;
 
 public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder> {
     private ArrayList<Language> mLanguage;
+    private Listener mListener;
 
-    public LanguageAdapter(ArrayList<Language> languages) {
+    public LanguageAdapter(ArrayList<Language> languages, Listener listener) {
         mLanguage = languages;
+        mListener = listener;
+    }
+
+    public interface Listener {
+        void onClick(View view, String name);
     }
 
     @NonNull
     @Override
     public LanguageAdapter.LanguageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.langauge_list_row, parent, false);
-        LanguageViewHolder holder = new LanguageViewHolder(v);
+        LanguageViewHolder holder = new LanguageViewHolder(v, mListener);
         return holder;
     }
 
@@ -31,6 +37,7 @@ public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.Langua
         Language language = mLanguage.get(position);
         holder.name.setText(language.getName());
         holder.symbol.setImageResource(language.getImage());
+        holder.itemView.setTag(language.getName());
     }
 
     @Override
@@ -38,14 +45,22 @@ public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.Langua
         return mLanguage.size();
     }
 
-    public class LanguageViewHolder extends RecyclerView.ViewHolder {
+    public class LanguageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView name;
         public ImageView symbol;
+        private Listener listener;
 
-        public LanguageViewHolder(@NonNull View itemView) {
+        public LanguageViewHolder(@NonNull View itemView, Listener listener) {
             super(itemView);
+            this.listener = listener;
+            itemView.setOnClickListener(this);
             name = itemView.findViewById(R.id.tvCourseName);
             symbol = itemView.findViewById(R.id.ivLanguagePic);
+        }
+
+        @Override
+        public void onClick(View view) {
+            listener.onClick(view, (String) view.getTag());
         }
     }
 

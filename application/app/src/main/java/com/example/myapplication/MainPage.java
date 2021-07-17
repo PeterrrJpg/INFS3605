@@ -43,8 +43,16 @@ public class MainPage extends AppCompatActivity {
         languageRecyclerview.setHasFixedSize(true);
         lLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         languageRecyclerview.setLayoutManager(lLayoutManager);
+        LanguageAdapter.Listener listener = new LanguageAdapter.Listener() {
+            @Override
+            public void onClick(View view, String name) {
+                if (name.equals("Ngunnawal")) {
+                    launchDictionaryPage();
+                }
+            }
+        };
 
-        lAdapter = new LanguageAdapter(new ArrayList<>());
+        lAdapter = new LanguageAdapter(new ArrayList<>(), listener);
         languageRecyclerview.setAdapter(lAdapter);
         lAdapter.setData(Language.getLanguages());
 
