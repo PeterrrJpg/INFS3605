@@ -208,7 +208,7 @@ public class LeaderboardPage extends AppCompatActivity {
                             Leaderboard user = new Leaderboard(name, score, profile);
                             leaderboard3.add(user);
                         }
-                        Collections.sort((List) leaderboard2, new Comparator<Leaderboard>() {
+                        Collections.sort((List) leaderboard3, new Comparator<Leaderboard>() {
                             @Override
                             public int compare(Leaderboard o1, Leaderboard o2) {
                                 if (o2.getHighscore().compareTo(o1.getHighscore()) == 0) {
