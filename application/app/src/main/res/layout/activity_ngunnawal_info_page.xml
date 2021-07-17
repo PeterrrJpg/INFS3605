@@ -8,6 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="#7A3B3B"
         android:layout_height="wrap_content">
 
         <TextView
@@ -19,6 +20,7 @@
             android:layout_marginTop="16dp"
             android:text="Ngunnawal"
             android:textSize="30sp"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,6 +32,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            android:textColor="@color/white"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="The Ngunnawal people, also spelt Ngunawal, are an Aboriginal people of southern New South Wales and the Australian Capital Territory in Australia."
@@ -55,6 +58,7 @@
             android:layout_marginTop="16dp"
             android:text="Language"
             android:textSize="20sp"
+            android:textColor="@color/white"
             android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -66,6 +70,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            android:textColor="@color/white"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="Ngunnawal, or Gundungurra, is an Australian Aboriginal language, the traditional language of the Ngunnawal and Gandangara peoples. There are contradictory claims as to whether they are one language or two."
@@ -79,6 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Dispute over traditional ownership"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="@+id/textView5"
@@ -91,6 +97,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            android:textColor="@color/white"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="At present, three groups contest ownership in the Canberra area: the Ngambri, the Ngarigo, and the Walgalu speaking Ngambri-Guumaal, represented by Shane Mortimer, with widespread connections from across the Snowy Mountains down to the Blue Mountains."
@@ -105,6 +112,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            android:textColor="@color/white"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="According to settlers living in the area in the 1830s, such as quoted in the Queanbeyan Age, there were three groups in the region: the Ngunnawal, the Nyamudy/Namadgi and the Ngarigo."
@@ -128,6 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Native title"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="@+id/textView5"
@@ -140,6 +149,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            android:textColor="@color/white"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="The earliest direct evidence for Aboriginal occupation in the area comes from a rock shelter near the area of Birrigai near Tharwa, which has been dated to approximately 25,000 years ago. However, it is likely (based on older sites known from the surrounding regions) that human occupation of the region goes back considerably further."

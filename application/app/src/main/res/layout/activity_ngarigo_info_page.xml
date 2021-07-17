@@ -14,6 +14,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#7A3B3B"
         tools:context=".NgarigoInfoPage">
 
         <TextView
@@ -24,6 +25,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:text="Ngarigo"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +39,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:textColor="@color/white"
             android:layout_marginRight="16dp"
             android:text="The Ngarigo (also spelt Garego, Ngarego, Ngarago, Ngaragu, Ngarigu, Ngarrugu or Ngarroogoo) are an Aboriginal Australian people of southeast New South Wales, whose traditional lands also extend around the present border with Victoria."
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +65,7 @@
             android:text="Language"
             android:textSize="20sp"
             android:textStyle="bold|italic"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -73,6 +77,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:textColor="@color/white"
             android:layout_marginRight="16dp"
             android:text="Ngarigo has been classified by linguist Robert Dixon as one of two Aboriginal Australian languages of the Southern New South Wales Group, the other being Ngunawal/Gundungurra."
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +88,7 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginTop="16dp"
             android:text="Dispute over ownership of Canberra area"
             android:textSize="20sp"
@@ -98,6 +104,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:textColor="@color/white"
             android:layout_marginRight="16dp"
             android:text="Several tribes have been historically associated with the area around Canberra, with conflicting claims arising from the assessment of native title rights among those who descend from the Aboriginal peoples of the region. Descendants of the Ngarigo, Ngunawal and Walgalu have vied to assert primacy."
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,6 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:textColor="@color/white"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"

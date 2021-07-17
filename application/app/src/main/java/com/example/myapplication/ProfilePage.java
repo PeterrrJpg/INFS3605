@@ -20,6 +20,7 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,6 +31,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -86,6 +88,27 @@ public class ProfilePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+        bottomNavigationView.setSelectedItemId(R.id.Profile);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch(item.getItemId()){
+                    case R.id.Leaderboard:
+                        startActivity(new Intent(getApplicationContext(),LeaderboardPage.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.Home:
+                        startActivity(new Intent(getApplicationContext(),HomePage.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.Profile:
+                        return true;
+                }
+                return false;
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
