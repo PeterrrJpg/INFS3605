@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1EDED"
+    android:background="#7A3B3B"
     tools:context=".ProfilePage">
 
     <ScrollView
         android:id="@+id/scProfile"
         android:layout_width="match_parent"
+        android:background="#7A3B3B"
         android:layout_height="wrap_content">
 
         <RelativeLayout
@@ -20,7 +21,7 @@
                 android:id="@+id/ivCoverPic"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:background="@color/colorPrimaryDark"></ImageView>
+                android:background="#C4C4C4"></ImageView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,7 +35,7 @@
                     android:layout_height="120dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"
-                    android:background="@color/colorPrimary"
+                    android:background="#C4C4C4"
                     android:padding="5dp"
                     android:src="@drawable/ic_default_background" />
 
@@ -88,6 +89,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
+        android:textColor="@color/white"
         android:text="Highscore"
         android:textSize="25sp"
         android:textStyle="bold"></TextView>
@@ -100,6 +102,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="25dp"
+        android:textColor="@color/white"
         android:text="ALL Language"
         android:textSize="20sp">
     </TextView>
@@ -111,6 +114,7 @@
         android:layout_below="@+id/tvProfileALLHighscore"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:textColor="@color/white"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="10"
@@ -124,6 +128,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="35dp"
+        android:textColor="@color/white"
         android:text="Ngunnawal Language"
         android:textSize="20sp"></TextView>
 
@@ -134,10 +139,23 @@
         android:layout_below="@+id/tvProfileNgunnawalHighscore"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:textColor="@color/white"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="10"
         android:textSize="20sp"></TextView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="84dp"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rvCourse"
+        app:menu="@menu/menu_navbottom" />
 
     <TextView
         android:id="@+id/tvProfileNgarigoHighscore"
@@ -146,6 +164,7 @@
         android:layout_below="@+id/tvProfileNgunnawalHighscoreValue"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
+        android:textColor="@color/white"
         android:layout_marginTop="35dp"
         android:text="Ngunnawal Language"
         android:textSize="20sp"></TextView>
@@ -157,6 +176,7 @@
         android:layout_below="@+id/tvProfileNgarigoHighscore"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:textColor="@color/white"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="10"
@@ -164,13 +184,17 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btEdit"
-        android:src="@drawable/ic_edit_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="10dp">
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="70dp"
+        android:src="@drawable/ic_edit_black"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </RelativeLayout>
