@@ -89,7 +89,7 @@ public class AuthPage extends AppCompatActivity {
     }
 
     private void launchMainPage() {
-        Intent intent = new Intent(AuthPage.this, MainPage.class);
+        Intent intent = new Intent(AuthPage.this, HomePage.class);
         startActivity(intent);
     }
 

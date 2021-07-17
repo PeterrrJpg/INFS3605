@@ -113,7 +113,7 @@ public class ResultsPage extends AppCompatActivity {
     }
 
     private void launchMainPage() {
-        Intent intent = new Intent(this, MainPage.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
 

@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".NgarigoQuizPage"></activity>
+        <activity android:name=".NgunnawalInfoPage" />
+        <activity android:name=".NgarigoInfoPage" />
+        <activity android:name=".NgarigoQuizPage" />
         <activity
             android:name=".NgarigoDictionaryPage"
             android:theme="@style/Theme.AppCompat.Light" />
@@ -33,8 +35,7 @@
         <activity android:name=".NgunnawalQuizPage" />
         <activity android:name=".ProfilePage" />
         <activity android:name=".AuthPage" />
-        <activity android:name=".TestPage" />
-        <activity android:name=".MainPage" />
+        <activity android:name=".HomePage" />
     </application>
 
 </manifest>

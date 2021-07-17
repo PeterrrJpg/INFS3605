@@ -99,7 +99,7 @@ public class NgunnawalQuizPage extends AppCompatActivity {
         Toast.makeText(NgunnawalQuizPage.this, "You ran out of time!", Toast.LENGTH_SHORT).show();
         NgunnawalQuiz.resetQuiz();
         timer.cancel();
-        Intent intent = new Intent(NgunnawalQuizPage.this, MainPage.class);
+        Intent intent = new Intent(NgunnawalQuizPage.this, HomePage.class);
         startActivity(intent);
     }
 
@@ -107,7 +107,7 @@ public class NgunnawalQuizPage extends AppCompatActivity {
         Toast.makeText(NgunnawalQuizPage.this, "Quiz Aborted", Toast.LENGTH_SHORT).show();
         NgunnawalQuiz.resetQuiz();
         timer.cancel();
-        Intent intent = new Intent(NgunnawalQuizPage.this, MainPage.class);
+        Intent intent = new Intent(NgunnawalQuizPage.this, HomePage.class);
         startActivity(intent);
     }
 

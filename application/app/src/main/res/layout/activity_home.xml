@@ -4,20 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPage">
+    tools:context=".HomePage">
 
-
-    <Button
-        android:id="@+id/btTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btLogOut"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="8dp"
-        android:text="Webview Test"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btLogOut"
@@ -47,7 +35,6 @@
         android:id="@+id/btLeaderboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btQuiz"
         android:layout_centerInParent="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"

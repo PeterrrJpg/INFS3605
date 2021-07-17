@@ -16,9 +16,8 @@ import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 
-public class MainPage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
 
-    private Button btTest;
     private Button btLogOut;
     private Button btProfile;
     private Button btLeaderboard;
@@ -34,7 +33,7 @@ public class MainPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         languageRecyclerview = findViewById(R.id.rvLanguage);
         languageRecyclerview.setHasFixedSize(true);
@@ -44,9 +43,9 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View view, String name) {
                 if (name.equals("Ngunnawal")) {
-                    launchNgunnawalDictionaryPage();
+                    launchNgunnawalInfoPage();
                 } else if (name.equals("Ngarigo")) {
-                    launchNgarigoDictionaryPage();
+                    launchNgarigoInfoPage();
                 }
             }
         };
@@ -73,14 +72,6 @@ public class MainPage extends AppCompatActivity {
         cAdapter = new CourseAdapter(new ArrayList<>(), listener1);
         courseRecyclerview.setAdapter(cAdapter);
         cAdapter.setData(Course.getCourses());
-
-        btTest = findViewById(R.id.btTest);
-        btTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                launchTestPage();
-            }
-        });
 
         btLogOut = findViewById(R.id.btLogOut);
         btLogOut.setOnClickListener(new View.OnClickListener() {
@@ -114,43 +105,38 @@ public class MainPage extends AppCompatActivity {
         });
     }
 
-    private void launchTestPage() {
-        Intent intent = new Intent(MainPage.this, TestPage.class);
-        startActivity(intent);
-    }
-
     private void launchAuthPage() {
-        Intent intent = new Intent(MainPage.this, AuthPage.class);
+        Intent intent = new Intent(HomePage.this, AuthPage.class);
         startActivity(intent);
     }
 
     private void launchProfilePage() {
-        Intent intent = new Intent(MainPage.this, ProfilePage.class);
+        Intent intent = new Intent(HomePage.this, ProfilePage.class);
         startActivity(intent);
     }
 
     private void launchLeaderboardPage() {
-        Intent intent = new Intent(MainPage.this, LeaderboardPage.class);
+        Intent intent = new Intent(HomePage.this, LeaderboardPage.class);
         startActivity(intent);
     }
 
-    private void launchNgunnawalDictionaryPage() {
-        Intent intent = new Intent(MainPage.this, NgunnawalDictionaryPage.class);
+    private void launchNgunnawalInfoPage() {
+        Intent intent = new Intent(HomePage.this, NgunnawalInfoPage.class);
         startActivity(intent);
     }
 
-    private void launchNgarigoDictionaryPage() {
-        Intent intent = new Intent(MainPage.this, NgarigoDictionaryPage.class);
+    private void launchNgarigoInfoPage() {
+        Intent intent = new Intent(HomePage.this, NgarigoInfoPage.class);
         startActivity(intent);
     }
 
     private void launchNgunnawalQuizePage() {
-        Intent intent = new Intent(MainPage.this, NgunnawalQuizPage.class);
+        Intent intent = new Intent(HomePage.this, NgunnawalQuizPage.class);
         startActivity(intent);
     }
 
     private void launchNgarigoQuizePage() {
-        Intent intent = new Intent(MainPage.this, NgarigoQuizPage.class);
+        Intent intent = new Intent(HomePage.this, NgarigoQuizPage.class);
         startActivity(intent);
     }
 
