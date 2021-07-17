@@ -25,10 +25,8 @@ import java.util.ArrayList;
 
 public class HomePage extends AppCompatActivity {
     private FirebaseUser mUser;
-    
+
     private Button btLogOut;
-    private Button btProfile;
-    private Button btLeaderboard;
     private TextView tvUsername;
 
     private RecyclerView languageRecyclerview;
@@ -124,36 +122,10 @@ public class HomePage extends AppCompatActivity {
                         });
             }
         });
-
-        btProfile = findViewById(R.id.btProfile);
-        btProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                launchProfilePage();
-            }
-        });
-
-        btLeaderboard = findViewById(R.id.btLeaderboard);
-        btLeaderboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                launchLeaderboardPage();
-            }
-        });
     }
 
     private void launchAuthPage() {
         Intent intent = new Intent(HomePage.this, AuthPage.class);
-        startActivity(intent);
-    }
-
-    private void launchProfilePage() {
-        Intent intent = new Intent(HomePage.this, ProfilePage.class);
-        startActivity(intent);
-    }
-
-    private void launchLeaderboardPage() {
-        Intent intent = new Intent(HomePage.this, LeaderboardPage.class);
         startActivity(intent);
     }
 

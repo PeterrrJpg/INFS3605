@@ -17,11 +17,16 @@ public class NgunnawalQuizPage extends AppCompatActivity {
     private CountDownTimer timer;
     private int timerCount;
     private int currentQuestion;
+    private int displayCurrentQuestion;
+    private int numQuestionsRight;
     private final int ONE_SECOND = 1000;
     private final int GAME_TIME = 30000;
+    private final int NUM_QUESTION = 5;
 
     private TextView tvQuestion;
     private TextView tvTimer;
+    private TextView tvScore;
+    private TextView tvNumQuestion;
     private Button btOption1;
     private Button btOption2;
     private Button btOption3;
@@ -34,10 +39,17 @@ public class NgunnawalQuizPage extends AppCompatActivity {
 
         tvQuestion = findViewById(R.id.tvQuestionNgunnawal);
         tvTimer = findViewById(R.id.tvTimerNgunnawal);
+        tvScore = findViewById(R.id.tvScoreNgunnawalQuiz);
+        tvNumQuestion = findViewById(R.id.tvQuestionNgunnawalQuiz);
         btOption1 = findViewById(R.id.btOption1Ngunnawal);
         btOption2 = findViewById(R.id.btOption2Ngunnawal);
         btOption3 = findViewById(R.id.btOption3Ngunnawal);
         btOption4 = findViewById(R.id.btOption4Ngunnawal);
+
+        displayCurrentQuestion = 1;
+        tvNumQuestion.setText("Question: " + displayCurrentQuestion + "/" + NUM_QUESTION);
+        numQuestionsRight = 0;
+        tvScore.setText("Score: " + numQuestionsRight * 5);
 
         quiz = NgunnawalQuiz.getInstance();
         score = 0;
@@ -116,6 +128,10 @@ public class NgunnawalQuizPage extends AppCompatActivity {
             score++;
             if (quiz.getQuestions().size() - (currentQuestion + 1) > 0) {
                 currentQuestion++;
+                displayCurrentQuestion++;
+                tvNumQuestion.setText("Question: " + displayCurrentQuestion + "/" + NUM_QUESTION);
+                numQuestionsRight++;
+                tvScore.setText("Score: " + numQuestionsRight * 5);
                 loadNextQuestion();
                 Toast.makeText(NgunnawalQuizPage.this, "Correct", Toast.LENGTH_SHORT).show();
             } else {
@@ -123,9 +139,16 @@ public class NgunnawalQuizPage extends AppCompatActivity {
                 launchResultsPage("ngunnawal");
             }
         } else {
-            Toast.makeText(NgunnawalQuizPage.this, "Incorrect", Toast.LENGTH_SHORT).show();
-            timer.cancel();
-            launchResultsPage("ngunnawal");
+            if (quiz.getQuestions().size() - (currentQuestion + 1) > 0) {
+                currentQuestion++;
+                displayCurrentQuestion++;
+                tvNumQuestion.setText("Question: " + displayCurrentQuestion + "/" + NUM_QUESTION);
+                loadNextQuestion();
+                Toast.makeText(NgunnawalQuizPage.this, "Incorrect", Toast.LENGTH_SHORT).show();
+            } else {
+                timer.cancel();
+                launchResultsPage("ngunnawal");
+            }
         }
     }
 

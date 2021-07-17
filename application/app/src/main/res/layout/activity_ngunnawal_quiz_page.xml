@@ -8,7 +8,7 @@
     tools:context=".NgunnawalQuizPage">
 
     <View
-        android:id="@+id/divider"
+        android:id="@+id/dividerNgunnawal"
         android:layout_width="479dp"
         android:layout_height="87dp"
         android:background="#C4C4C4"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/divider5"
+        android:id="@+id/divider5Ngunnawal"
         android:layout_width="89dp"
         android:layout_height="86dp"
         android:background="#E2DCDC"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvScore"
+        android:id="@+id/tvScoreNgunnawalQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -35,95 +35,94 @@
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="15dp" />
 
     <TextView
-        android:id="@+id/tvQuestion"
+        android:id="@+id/tvQuestionNgunnawalQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Question: 1/x"
         android:textColor="@color/white"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/tvScore"
-        app:layout_constraintTop_toBottomOf="@+id/tvScore" />
+        app:layout_constraintStart_toStartOf="@+id/tvScoreNgunnawalQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/tvScoreNgunnawalQuiz" />
 
     <TextView
         android:id="@+id/tvTimerNgunnawal"
-        android:layout_width="49dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="740dp"
+        android:layout_marginBottom="28dp"
         android:gravity="center_horizontal"
         android:text="25s"
         android:textColor="@color/white"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/divider5Ngunnawal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider5" />
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvQuestionNgunnawal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        android:layout_marginTop="65dp"
         android:gravity="center"
         android:text="Questions Here"
         android:textColor="@color/white"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/btOption1Ngunnawal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividerNgunnawal" />
 
     <Button
         android:id="@+id/btOption1Ngunnawal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="43dp"
+        android:layout_marginTop="36dp"
         android:text="Option 1"
         android:textSize="20sp"
         app:backgroundTint="#FA8F8F"
-        app:layout_constraintBottom_toTopOf="@+id/btOption2Ngunnawal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestionNgunnawal" />
 
     <Button
         android:id="@+id/btOption2Ngunnawal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="36dp"
         android:text="Option 2"
         android:textSize="20sp"
         app:backgroundTint="#FA8F8F"
-        app:layout_constraintBottom_toTopOf="@+id/btOption3Ngunnawal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btOption1Ngunnawal" />
 
     <Button
         android:id="@+id/btOption3Ngunnawal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
+        android:layout_marginTop="36dp"
         android:text="Option 3"
         android:textSize="20sp"
         app:backgroundTint="#FA8F8F"
-        app:layout_constraintBottom_toTopOf="@+id/btOption4Ngunnawal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btOption2Ngunnawal" />
 
     <Button
         android:id="@+id/btOption4Ngunnawal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="181dp"
+        android:layout_marginTop="36dp"
         android:text="Option 4"
         android:textSize="20sp"
         app:backgroundTint="#FA8F8F"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btOption3Ngunnawal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

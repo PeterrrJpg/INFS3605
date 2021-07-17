@@ -17,11 +17,16 @@ public class NgarigoQuizPage extends AppCompatActivity {
     private CountDownTimer timer;
     private int timerCount;
     private int currentQuestion;
+    private int displayCurrentQuestion;
+    private int numQuestionsRight;
     private final int ONE_SECOND = 1000;
     private final int GAME_TIME = 30000;
+    private final int NUM_QUESTION = 3;
 
     private TextView tvQuestion;
     private TextView tvTimer;
+    private TextView tvScore;
+    private TextView tvNumQuestion;
     private Button btOption1;
     private Button btOption2;
     private Button btOption3;
@@ -34,10 +39,17 @@ public class NgarigoQuizPage extends AppCompatActivity {
 
         tvQuestion = findViewById(R.id.tvQuestionNgarigo);
         tvTimer = findViewById(R.id.tvTimerNgarigo);
+        tvScore = findViewById(R.id.tvScoreNgarigoQuiz);
+        tvNumQuestion = findViewById(R.id.tvQuestionNgarigoQuiz);
         btOption1 = findViewById(R.id.btOption1Ngarigo);
         btOption2 = findViewById(R.id.btOption2Ngarigo);
         btOption3 = findViewById(R.id.btOption3Ngarigo);
         btOption4 = findViewById(R.id.btOption4Ngarigo);
+
+        displayCurrentQuestion = 1;
+        tvNumQuestion.setText("Question: " + displayCurrentQuestion + "/" + NUM_QUESTION);
+        numQuestionsRight = 0;
+        tvScore.setText("Score: " + numQuestionsRight * 5);
 
         quiz = NgarigoQuiz.getInstance();
         score = 0;
@@ -116,6 +128,10 @@ public class NgarigoQuizPage extends AppCompatActivity {
             score++;
             if (quiz.getQuestions().size() - (currentQuestion + 1) > 0) {
                 currentQuestion++;
+                displayCurrentQuestion++;
+                tvNumQuestion.setText("Question: " + displayCurrentQuestion + "/" + NUM_QUESTION);
+                numQuestionsRight++;
+                tvScore.setText("Score: " + numQuestionsRight * 5);
                 loadNextQuestion();
                 Toast.makeText(NgarigoQuizPage.this, "Correct", Toast.LENGTH_SHORT).show();
             } else {
@@ -123,9 +139,16 @@ public class NgarigoQuizPage extends AppCompatActivity {
                 launchResultsPage("ngarigo");
             }
         } else {
-            Toast.makeText(NgarigoQuizPage.this, "Incorrect", Toast.LENGTH_SHORT).show();
-            timer.cancel();
-            launchResultsPage("ngarigo");
+            if (quiz.getQuestions().size() - (currentQuestion + 1) > 0) {
+                currentQuestion++;
+                displayCurrentQuestion++;
+                tvNumQuestion.setText("Question: " + displayCurrentQuestion + "/" + NUM_QUESTION);
+                loadNextQuestion();
+                Toast.makeText(NgarigoQuizPage.this, "Incorrect", Toast.LENGTH_SHORT).show();
+            } else {
+                timer.cancel();
+                launchResultsPage("ngarigo");
+            }
         }
     }
 

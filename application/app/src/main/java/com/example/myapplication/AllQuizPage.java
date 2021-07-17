@@ -17,11 +17,16 @@ public class AllQuizPage extends AppCompatActivity {
     private CountDownTimer timer;
     private int timerCount;
     private int currentQuestion;
+    private int displayCurrentQuestion;
+    private int numQuestionsRight;
     private final int ONE_SECOND = 1000;
     private final int GAME_TIME = 30000;
+    private final int NUM_QUESTION = 3;
 
     private TextView tvQuestion;
     private TextView tvTimer;
+    private TextView tvScore;
+    private TextView tvNumQuestion;
     private Button btOption1;
     private Button btOption2;
     private Button btOption3;
@@ -34,10 +39,17 @@ public class AllQuizPage extends AppCompatActivity {
 
         tvQuestion = findViewById(R.id.tvQuestionAll);
         tvTimer = findViewById(R.id.tvTimerAll);
+        tvScore = findViewById(R.id.tvScoreAllQuiz);
+        tvNumQuestion = findViewById(R.id.tvQuestionAllQuiz);
         btOption1 = findViewById(R.id.btOption1All);
         btOption2 = findViewById(R.id.btOption2All);
         btOption3 = findViewById(R.id.btOption3All);
         btOption4 = findViewById(R.id.btOption4All);
+
+        displayCurrentQuestion = 1;
+        tvNumQuestion.setText("Question: " + displayCurrentQuestion + "/" + NUM_QUESTION);
+        numQuestionsRight = 0;
+        tvScore.setText("Score: " + numQuestionsRight * 5);
 
         quiz = AllQuiz.getInstance();
         score = 0;
@@ -116,6 +128,10 @@ public class AllQuizPage extends AppCompatActivity {
             score++;
             if (quiz.getQuestions().size() - (currentQuestion + 1) > 0) {
                 currentQuestion++;
+                displayCurrentQuestion++;
+                tvNumQuestion.setText("Question: " + displayCurrentQuestion + "/" + NUM_QUESTION);
+                numQuestionsRight++;
+                tvScore.setText("Score: " + numQuestionsRight * 5);
                 loadNextQuestion();
                 Toast.makeText(AllQuizPage.this, "Correct", Toast.LENGTH_SHORT).show();
             } else {
@@ -123,9 +139,16 @@ public class AllQuizPage extends AppCompatActivity {
                 launchResultsPage("all");
             }
         } else {
-            Toast.makeText(AllQuizPage.this, "Incorrect", Toast.LENGTH_SHORT).show();
-            timer.cancel();
-            launchResultsPage("all");
+            if (quiz.getQuestions().size() - (currentQuestion + 1) > 0) {
+                currentQuestion++;
+                displayCurrentQuestion++;
+                tvNumQuestion.setText("Question: " + displayCurrentQuestion + "/" + NUM_QUESTION);
+                loadNextQuestion();
+                Toast.makeText(AllQuizPage.this, "Incorrect", Toast.LENGTH_SHORT).show();
+            } else {
+                timer.cancel();
+                launchResultsPage("all");
+            }
         }
     }
 
