@@ -118,7 +118,7 @@ public class ProfilePage extends AppCompatActivity {
                     try {
                         Picasso.get().load(profile).fit().centerCrop().into(ivProfile);
                     } catch (Exception e) {
-                        Picasso.get().load(R.drawable.ic_default_background).into(ivProfile);
+                        ivProfile.setImageResource(R.drawable.default_profile);
                     }
                     try {
                         Picasso.get().load(cover).fit().centerCrop().into(ivCover);

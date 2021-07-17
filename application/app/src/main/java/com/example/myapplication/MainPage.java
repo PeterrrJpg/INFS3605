@@ -60,8 +60,18 @@ public class MainPage extends AppCompatActivity {
         courseRecyclerview.setHasFixedSize(true);
         cLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         courseRecyclerview.setLayoutManager(cLayoutManager);
+        CourseAdapter.Listener listener1 = new CourseAdapter.Listener() {
+            @Override
+            public void onClick(View view, String category) {
+                if (category.equals("People")) {
+                    launchChooseLanguagePage(category);
+                } else if (category.equals("Human Body")) {
+                    launchChooseLanguagePage(category);
+                }
+            }
+        };
 
-        cAdapter = new CourseAdapter(new ArrayList<>());
+        cAdapter = new CourseAdapter(new ArrayList<>(), listener1);
         courseRecyclerview.setAdapter(cAdapter);
         cAdapter.setData(Course.getCourses());
 
@@ -145,6 +155,12 @@ public class MainPage extends AppCompatActivity {
 
     private void launchNgarigoDictionaryPage() {
         Intent intent = new Intent(MainPage.this, NgarigoDictionaryPage.class);
+        startActivity(intent);
+    }
+
+    private void launchChooseLanguagePage(String course) {
+        Intent intent = new Intent(MainPage.this, ChooseLanguagePage.class);
+        intent.putExtra(ChooseLanguagePage.CHOOSE_INTENT, course);
         startActivity(intent);
     }
 

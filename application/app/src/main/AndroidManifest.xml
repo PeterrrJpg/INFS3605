@@ -14,17 +14,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <activity android:name=".NgarigoHBPage"></activity>
+        <activity android:name=".NgunnawalHBPage" />
+        <activity android:name=".ChooseLanguagePage" />
+        <activity android:name=".NgarigoPeoplePage" />
+        <activity android:name=".NgunnawalPeoplePage" />
         <activity
             android:name=".NgarigoDictionaryPage"
-            android:theme="@style/Theme.AppCompat.Light">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".NgunnawalDictionaryPage"
-            android:theme="@style/Theme.AppCompat.Light">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

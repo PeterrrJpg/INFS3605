@@ -13,16 +13,22 @@ import java.util.ArrayList;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
     private ArrayList<Course> mCourse;
+    private Listener mListener;
 
-    public CourseAdapter(ArrayList<Course> courses) {
+    public CourseAdapter(ArrayList<Course> courses, Listener listener) {
         mCourse = courses;
+        mListener = listener;
+    }
+
+    public interface Listener {
+        void onClick(View view, String category);
     }
 
     @NonNull
     @Override
     public CourseAdapter.CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.course_list_row, parent, false);
-        CourseViewHolder holder = new CourseViewHolder(v);
+        CourseViewHolder holder = new CourseViewHolder(v, mListener);
         return holder;
     }
 
@@ -31,6 +37,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         Course course = mCourse.get(position);
         holder.name.setText(course.getName());
         holder.pic.setImageResource(course.getImage());
+        holder.itemView.setTag(course.getName());
     }
 
     @Override
@@ -38,14 +45,22 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         return mCourse.size();
     }
 
-    public class CourseViewHolder extends RecyclerView.ViewHolder {
-        TextView name;
-        ImageView pic;
+    public class CourseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public TextView name;
+        public ImageView pic;
+        private Listener listener;
 
-        public CourseViewHolder(@NonNull View itemView) {
+        public CourseViewHolder(@NonNull View itemView, Listener listener) {
             super(itemView);
+            this.listener = listener;
+            itemView.setOnClickListener(this);
             name = itemView.findViewById(R.id.tvCourseName);
             pic = itemView.findViewById(R.id.ivCoursePic);
+        }
+
+        @Override
+        public void onClick(View view) {
+            listener.onClick(view, (String) view.getTag());
         }
     }
 

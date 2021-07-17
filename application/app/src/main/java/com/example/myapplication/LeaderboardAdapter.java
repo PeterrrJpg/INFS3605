@@ -37,7 +37,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
         holder.username.setText(leaderboard.getUsername());
         holder.highscore.setText(df.format(leaderboard.getHighscore()));
         if (leaderboard.getProfile().isEmpty()) {
-            Picasso.get().load(R.drawable.ic_default_background).transform(new PicassoCircleTransformation()).fit().centerCrop().into(holder.profile);
+            Picasso.get().load(R.drawable.default_profile).transform(new PicassoCircleTransformation()).fit().centerCrop().into(holder.profile);
         } else {
             Picasso.get().load(leaderboard.getProfile()).transform(new PicassoCircleTransformation()).fit().centerCrop().into(holder.profile);
         }
