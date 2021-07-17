@@ -29,14 +29,10 @@ public class Course {
 
     public static ArrayList<Course> getCourses() {
         ArrayList<Course> courses = new ArrayList<>();
-        courses.add(new Course("People", R.drawable.people));
-        courses.add(new Course("Human Body", R.drawable.human_body));
-        courses.add(new Course("Inanimate Nature", R.drawable.nature));
-        courses.add(new Course("Mammal", R.drawable.mammal));
-        courses.add(new Course("Bird", R.drawable.bird));
-        courses.add(new Course("Fish", R.drawable.fish));
-        courses.add(new Course("Reptile", R.drawable.reptile));
-        courses.add(new Course("Plant", R.drawable.plant));
+        courses.add(new Course("Ngunnawal", R.drawable.ngunnawal));
+        courses.add(new Course("Ngarigo", R.drawable.ngarigo));
+        courses.add(new Course("Sample 1", R.drawable.sample));
+        courses.add(new Course("Sample 2", R.drawable.sample));
         return courses;
     }
 }

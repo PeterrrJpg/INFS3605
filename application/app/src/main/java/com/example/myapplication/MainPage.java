@@ -21,7 +21,6 @@ public class MainPage extends AppCompatActivity {
     private Button btTest;
     private Button btLogOut;
     private Button btProfile;
-    private Button btQuiz;
     private Button btLeaderboard;
 
     private RecyclerView languageRecyclerview;
@@ -62,11 +61,11 @@ public class MainPage extends AppCompatActivity {
         courseRecyclerview.setLayoutManager(cLayoutManager);
         CourseAdapter.Listener listener1 = new CourseAdapter.Listener() {
             @Override
-            public void onClick(View view, String category) {
-                if (category.equals("People")) {
-                    launchChooseLanguagePage(category);
-                } else if (category.equals("Human Body")) {
-                    launchChooseLanguagePage(category);
+            public void onClick(View view, String language) {
+                if (language.equals("Ngunnawal")) {
+                    launchNgunnawalQuizePage();
+                } else if (language.equals("Ngarigo")) {
+                    launchNgarigoQuizePage();
                 }
             }
         };
@@ -106,14 +105,6 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
-        btQuiz = findViewById(R.id.btQuiz);
-        btQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                launchQuizPage();
-            }
-        });
-
         btLeaderboard = findViewById(R.id.btLeaderboard);
         btLeaderboard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,11 +129,6 @@ public class MainPage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void launchQuizPage() {
-        Intent intent = new Intent(MainPage.this, QuizPage.class);
-        startActivity(intent);
-    }
-
     private void launchLeaderboardPage() {
         Intent intent = new Intent(MainPage.this, LeaderboardPage.class);
         startActivity(intent);
@@ -158,9 +144,13 @@ public class MainPage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void launchChooseLanguagePage(String course) {
-        Intent intent = new Intent(MainPage.this, ChooseLanguagePage.class);
-        intent.putExtra(ChooseLanguagePage.CHOOSE_INTENT, course);
+    private void launchNgunnawalQuizePage() {
+        Intent intent = new Intent(MainPage.this, NgunnawalQuizPage.class);
+        startActivity(intent);
+    }
+
+    private void launchNgarigoQuizePage() {
+        Intent intent = new Intent(MainPage.this, NgarigoQuizPage.class);
         startActivity(intent);
     }
 

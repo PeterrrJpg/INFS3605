@@ -21,7 +21,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     }
 
     public interface Listener {
-        void onClick(View view, String category);
+        void onClick(View view, String language);
     }
 
     @NonNull

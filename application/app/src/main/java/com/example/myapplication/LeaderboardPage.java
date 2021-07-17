@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,11 +27,19 @@ public class LeaderboardPage extends AppCompatActivity {
     private FirebaseUser mUser;
     private DatabaseReference mDatabase;
 
+    // Ngunnawal
     private RecyclerView mRecyclerview;
     private LeaderboardAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     public static ArrayList<Leaderboard> leaderboard;
+
+    // Ngarigo
+    private RecyclerView mRecyclerview2;
+    private LeaderboardAdapter mAdapter2;
+    private RecyclerView.LayoutManager layoutManager2;
+
+    public static ArrayList<Leaderboard> leaderboard2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +49,10 @@ public class LeaderboardPage extends AppCompatActivity {
         mUser = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        // Ngunnawal
         leaderboard = new ArrayList<>();
 
-        mRecyclerview = findViewById(R.id.rvLeaderboard);
+        mRecyclerview = findViewById(R.id.rvLeaderboardNgunnawal);
         mRecyclerview.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         mRecyclerview.setLayoutManager(layoutManager);
@@ -52,7 +60,20 @@ public class LeaderboardPage extends AppCompatActivity {
         mAdapter = new LeaderboardAdapter(new ArrayList<>());
         mRecyclerview.setAdapter(mAdapter);
 
-        setLeaderboard();
+        setLeaderboardNgunnawal();
+
+        // Ngarigo
+        leaderboard2 = new ArrayList<>();
+
+        mRecyclerview2 = findViewById(R.id.rvLeaderboardNgarigo);
+        mRecyclerview2.setHasFixedSize(true);
+        layoutManager2 = new LinearLayoutManager(this);
+        mRecyclerview2.setLayoutManager(layoutManager2);
+
+        mAdapter2 = new LeaderboardAdapter(new ArrayList<>());
+        mRecyclerview2.setAdapter(mAdapter2);
+
+        setLeaderboardNgarigo();
 
         final ProgressDialog progress = new ProgressDialog(this);
         progress.setTitle("Loading Leaderboard");
@@ -69,14 +90,14 @@ public class LeaderboardPage extends AppCompatActivity {
         pdCanceller.postDelayed(progressRunnable, 3550);
     }
 
-    private void setLeaderboard() {
+    private void setLeaderboardNgunnawal() {
         mDatabase.child("Users")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot data : snapshot.getChildren()) {
                             String name = ((HashMap) data.getValue()).get("name").toString();
-                            int score = Integer.parseInt(((HashMap) data.getValue()).get("highscore").toString());
+                            int score = Integer.parseInt(((HashMap) data.getValue()).get("ngunnawal_highscore").toString());
                             String profile = ((HashMap) data.getValue()).get("profile").toString();
                             Leaderboard user = new Leaderboard(name, score, profile);
                             leaderboard.add(user);
@@ -91,6 +112,37 @@ public class LeaderboardPage extends AppCompatActivity {
                             }
                         });
                         mAdapter.setData(leaderboard);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
+    private void setLeaderboardNgarigo() {
+        mDatabase.child("Users")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            String name = ((HashMap) data.getValue()).get("name").toString();
+                            int score = Integer.parseInt(((HashMap) data.getValue()).get("ngarigo_highscore").toString());
+                            String profile = ((HashMap) data.getValue()).get("profile").toString();
+                            Leaderboard user = new Leaderboard(name, score, profile);
+                            leaderboard2.add(user);
+                        }
+                        Collections.sort((List) leaderboard2, new Comparator<Leaderboard>() {
+                            @Override
+                            public int compare(Leaderboard o1, Leaderboard o2) {
+                                if (o2.getHighscore().compareTo(o1.getHighscore()) == 0) {
+                                    return -1;
+                                }
+                                return o2.getHighscore().compareTo(o1.getHighscore());
+                            }
+                        });
+                        mAdapter2.setData(leaderboard2);
                     }
 
                     @Override

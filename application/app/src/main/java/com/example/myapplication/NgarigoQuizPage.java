@@ -11,13 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-public class QuizPage extends AppCompatActivity {
-    private Quiz quiz;
+public class NgarigoQuizPage extends AppCompatActivity {
+    private NgarigoQuiz quiz;
     private int score;
     private CountDownTimer timer;
     private int timerCount;
@@ -35,16 +30,16 @@ public class QuizPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_page);
+        setContentView(R.layout.activity_ngarigo_quiz_page);
 
-        tvQuestion = findViewById(R.id.tvQuestion);
-        tvTimer = findViewById(R.id.tvTimer);
-        btOption1 = findViewById(R.id.btOption1);
-        btOption2 = findViewById(R.id.btOption2);
-        btOption3 = findViewById(R.id.btOption3);
-        btOption4 = findViewById(R.id.btOption4);
+        tvQuestion = findViewById(R.id.tvQuestionNgarigo);
+        tvTimer = findViewById(R.id.tvTimerNgarigo);
+        btOption1 = findViewById(R.id.btOption1Ngarigo);
+        btOption2 = findViewById(R.id.btOption2Ngarigo);
+        btOption3 = findViewById(R.id.btOption3Ngarigo);
+        btOption4 = findViewById(R.id.btOption4Ngarigo);
 
-        quiz = Quiz.getInstance();
+        quiz = NgarigoQuiz.getInstance();
         score = 0;
         currentQuestion = 0;
         timerCount = 0;
@@ -101,18 +96,18 @@ public class QuizPage extends AppCompatActivity {
     }
 
     private void launchMainPage() {
-        Toast.makeText(QuizPage.this, "You ran out of time!", Toast.LENGTH_SHORT).show();
-        Quiz.resetQuiz();
+        Toast.makeText(NgarigoQuizPage.this, "You ran out of time!", Toast.LENGTH_SHORT).show();
+        NgarigoQuiz.resetQuiz();
         timer.cancel();
-        Intent intent = new Intent(QuizPage.this, MainPage.class);
+        Intent intent = new Intent(NgarigoQuizPage.this, MainPage.class);
         startActivity(intent);
     }
 
     private void quitQuiz() {
-        Toast.makeText(QuizPage.this, "Quiz Aborted", Toast.LENGTH_SHORT).show();
-        Quiz.resetQuiz();
+        Toast.makeText(NgarigoQuizPage.this, "Quiz Aborted", Toast.LENGTH_SHORT).show();
+        NgarigoQuiz.resetQuiz();
         timer.cancel();
-        Intent intent = new Intent(QuizPage.this, MainPage.class);
+        Intent intent = new Intent(NgarigoQuizPage.this, MainPage.class);
         startActivity(intent);
     }
 
@@ -122,15 +117,15 @@ public class QuizPage extends AppCompatActivity {
             if (quiz.getQuestions().size() - (currentQuestion + 1) > 0) {
                 currentQuestion++;
                 loadNextQuestion();
-                Toast.makeText(QuizPage.this, "Correct", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NgarigoQuizPage.this, "Correct", Toast.LENGTH_SHORT).show();
             } else {
                 timer.cancel();
-                launchResultsPage();
+                launchResultsPage("ngarigo");
             }
         } else {
-            Toast.makeText(QuizPage.this, "Incorrect", Toast.LENGTH_SHORT).show();
+            Toast.makeText(NgarigoQuizPage.this, "Incorrect", Toast.LENGTH_SHORT).show();
             timer.cancel();
-            launchResultsPage();
+            launchResultsPage("ngarigo");
         }
     }
 
@@ -142,8 +137,8 @@ public class QuizPage extends AppCompatActivity {
         btOption4.setText(quiz.getQuestions().get(currentQuestion).getOptions().get(3).first);
     }
 
-    private void launchResultsPage() {
-        Intent intent = new Intent(QuizPage.this, ResultsPage.class);
+    private void launchResultsPage(String language) {
+        Intent intent = new Intent(NgarigoQuizPage.this, ResultsPage.class);
         int finalScore = 0;
         if ((score) >= quiz.getQuestions().size()) {
             intent.putExtra(ResultsPage.INTENT_MESSAGE2, String.valueOf((GAME_TIME / ONE_SECOND) - timerCount));
@@ -154,7 +149,8 @@ public class QuizPage extends AppCompatActivity {
         }
         intent.putExtra(ResultsPage.INTENT_MESSAGE1, String.valueOf(score));
         intent.putExtra(ResultsPage.INTENT_MESSAGE3, String.valueOf(finalScore));
-        Quiz.resetQuiz();
+        intent.putExtra(ResultsPage.INTENT_MESSAGE4, language);
+        NgarigoQuiz.resetQuiz();
         timer.cancel();
         startActivity(intent);
     }
