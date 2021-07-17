@@ -2,15 +2,20 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import java.util.ArrayList;
 
 public class MainPage extends AppCompatActivity {
 
@@ -21,10 +26,36 @@ public class MainPage extends AppCompatActivity {
     private Button btLeaderboard;
     private Button btDictionary;
 
+    private RecyclerView languageRecyclerview;
+    private LanguageAdapter lAdapter;
+    private RecyclerView.LayoutManager lLayoutManager;
+
+    private RecyclerView courseRecyclerview;
+    private CourseAdapter cAdapter;
+    private RecyclerView.LayoutManager cLayoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        languageRecyclerview = findViewById(R.id.rvLanguage);
+        languageRecyclerview.setHasFixedSize(true);
+        lLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        languageRecyclerview.setLayoutManager(lLayoutManager);
+
+        lAdapter = new LanguageAdapter(new ArrayList<>());
+        languageRecyclerview.setAdapter(lAdapter);
+        lAdapter.setData(Language.getLanguages());
+
+        courseRecyclerview = findViewById(R.id.rvCourse);
+        courseRecyclerview.setHasFixedSize(true);
+        cLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        courseRecyclerview.setLayoutManager(cLayoutManager);
+
+        cAdapter = new CourseAdapter(new ArrayList<>());
+        courseRecyclerview.setAdapter(cAdapter);
+        cAdapter.setData(Course.getCourses());
 
         btTest = findViewById(R.id.btTest);
         btTest.setOnClickListener(new View.OnClickListener() {
