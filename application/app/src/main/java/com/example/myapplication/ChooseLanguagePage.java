@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,7 +17,6 @@ public class ChooseLanguagePage extends AppCompatActivity {
     private Spinner sExstingLan;
     private String existingLan[];
     private Button btNext;
-    private TextView test1, test2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,17 +39,17 @@ public class ChooseLanguagePage extends AppCompatActivity {
                 luanchChooseWordPage();
             }
         });
-
-        test1 = findViewById(R.id.tvTest1);
-        test2 = findViewById(R.id.tvTest2);
     }
 
     private void luanchChooseWordPage() {
         if (etNewLan.getText().toString().equals("") || etNewLan.getText().toString().isEmpty()) {
-            test1.setText("empty");
+            Intent intent = new Intent(ChooseLanguagePage.this, ChooseWordPage.class);
+            intent.putExtra(ChooseWordPage.INTENT_MESSAGE, sExstingLan.getSelectedItem().toString());
+            startActivity(intent);
         } else {
-            test1.setText(etNewLan.getText().toString());
+            Intent intent = new Intent(ChooseLanguagePage.this, ChooseWordPage.class);
+            intent.putExtra(ChooseWordPage.INTENT_MESSAGE, etNewLan.getText().toString());
+            startActivity(intent);
         }
-        test2.setText(sExstingLan.getSelectedItem().toString());
     }
 }

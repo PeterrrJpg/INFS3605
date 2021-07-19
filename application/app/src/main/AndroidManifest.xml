@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ChooseLanguagePage"></activity>
+        <activity android:name=".ChooseWordPage"></activity>
+        <activity android:name=".ChooseLanguagePage" />
         <activity android:name=".AddNewLanWordPage" />
         <activity android:name=".AllQuizPage" />
         <activity android:name=".NgunnawalInfoPage" />
