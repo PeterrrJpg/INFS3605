@@ -27,6 +27,7 @@ public class HomePage extends AppCompatActivity {
     private FirebaseUser mUser;
 
     private Button btLogOut;
+    private Button btAdd;
     private TextView tvUsername;
 
     private RecyclerView languageRecyclerview;
@@ -122,6 +123,14 @@ public class HomePage extends AppCompatActivity {
                         });
             }
         });
+
+        btAdd = findViewById(R.id.btAdd);
+        btAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchAddPage();
+            }
+        });
     }
 
     private void launchAuthPage() {
@@ -151,6 +160,11 @@ public class HomePage extends AppCompatActivity {
 
     private void launchNgarigoQuizPage() {
         Intent intent = new Intent(HomePage.this, NgarigoQuizPage.class);
+        startActivity(intent);
+    }
+
+    private void launchAddPage() {
+        Intent intent = new Intent(HomePage.this, AddNewLanWordPage.class);
         startActivity(intent);
     }
 
