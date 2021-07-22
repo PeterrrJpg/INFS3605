@@ -66,7 +66,13 @@ public class ChooseWordPage extends AppCompatActivity {
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeRequest(username, language, eng.getText().toString().toLowerCase(), fnp.getText().toString().toLowerCase());
+                if (eng.getText().toString().matches("")) {
+                    Toast.makeText(ChooseWordPage.this, "English word cannot be empty", Toast.LENGTH_SHORT).show();
+                } else if (fnp.getText().toString().matches("")) {
+                    Toast.makeText(ChooseWordPage.this, "First Nations People word cannot be empty", Toast.LENGTH_SHORT).show();
+                } else {
+                    makeRequest(username, language, eng.getText().toString().toLowerCase(), fnp.getText().toString().toLowerCase());
+                }
             }
         });
     }
