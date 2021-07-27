@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9075ad2c-a90c-4b05-a56a-b5e571d7efbe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/app/src/main/java/com/example/myapplication/Question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/app/src/main/java/com/example/myapplication/Quiz.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/app/src/main/java/com/example/myapplication/QuizPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/app/src/main/java/com/example/myapplication/ResultsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/app/src/main/res/layout/activity_quiz_page.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/app/src/main/res/layout/activity_results_page.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/app/src/main/java/com/example/myapplication/AuthPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/app/src/main/java/com/example/myapplication/AuthPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/app/src/main/java/com/example/myapplication/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/app/src/main/java/com/example/myapplication/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
