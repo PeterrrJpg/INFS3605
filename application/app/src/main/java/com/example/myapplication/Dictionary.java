@@ -408,7 +408,7 @@ public class Dictionary {
         ngarigo.add(new Dictionary("hey", "gugai", "PHRASE", "goo-guh-ee"));
         ngarigo.add(new Dictionary("you've got no shame", "guin muga", "PHRASE", "goo-een-moo-guh"));
         ngarigo.add(new Dictionary("yes, alright", "guli-gulaba", "PHRASE", "goo-lee-goo-luh-buh"));
-        ngarigo.add(new Dictionary("someone is watching you", "gundul-bidjali", "PHRASE", "goon-dool-bee-djuh-lee"));
+        ngarigo.add(new Dictionary("someone is\nwatching you", "gundul-bidjali", "PHRASE", "goon-dool-bee-djuh-lee"));
         ngarigo.add(new Dictionary("good job", "wur", "PHRASE", "woor"));
         ngarigo.add(new Dictionary("look out", "yabiyaliga", "PHRASE", "yuh-bee-yuh-lee-guh"));
         return ngarigo;

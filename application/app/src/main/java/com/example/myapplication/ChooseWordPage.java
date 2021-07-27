@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +27,7 @@ public class ChooseWordPage extends AppCompatActivity {
     public static final String INTENT_MESSAGE = "language";
     private EditText eng, fnp;
     private Button request;
+    private TextView displayLanguage;
 
     private FirebaseUser mUser;
     private DatabaseReference mDatabase;
@@ -43,7 +45,9 @@ public class ChooseWordPage extends AppCompatActivity {
 
         eng = findViewById(R.id.etEngWord);
         fnp = findViewById(R.id.etFirstNationWord);
+        displayLanguage = findViewById(R.id.tvLanguageDisplay);
 
+        displayLanguage.setText(language);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -82,11 +86,18 @@ public class ChooseWordPage extends AppCompatActivity {
         mDatabase.child("Requests").child(username).child(currentTime).child("language").setValue(lan);
         mDatabase.child("Requests").child(username).child(currentTime).child("eng_word").setValue(engWord);
         mDatabase.child("Requests").child(username).child(currentTime).child("fnp_word").setValue(fnpWord);
+        Toast.makeText(ChooseWordPage.this, "Success!", Toast.LENGTH_SHORT).show();
+        eng.setText("");
+        fnp.setText("");
+    }
+
+    @Override
+    public void onBackPressed() {
         launchHomePage();
+        super.onBackPressed();
     }
 
     private void launchHomePage() {
-        Toast.makeText(ChooseWordPage.this, "Success!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
