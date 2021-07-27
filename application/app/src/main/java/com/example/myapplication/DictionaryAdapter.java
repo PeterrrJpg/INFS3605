@@ -37,6 +37,7 @@ public class DictionaryAdapter extends RecyclerView.Adapter<DictionaryAdapter.Di
         holder.engWord.setText(dictionary.getEngWord());
         holder.firstNationsWord.setText(dictionary.getFirstNationsWord());
         holder.category.setText(dictionary.getCategory());
+        holder.pronunciation.setText(dictionary.getPronunciation());
     }
 
     @Override
@@ -75,13 +76,14 @@ public class DictionaryAdapter extends RecyclerView.Adapter<DictionaryAdapter.Di
     }
 
     public class DictionaryViewHolder extends RecyclerView.ViewHolder {
-        public TextView engWord, firstNationsWord, category;
+        public TextView engWord, firstNationsWord, category, pronunciation;
 
         public DictionaryViewHolder(@NonNull View itemView) {
             super(itemView);
             engWord = itemView.findViewById(R.id.tvEngWord);
             firstNationsWord = itemView.findViewById(R.id.tvFirstNationsWord);
             category = itemView.findViewById(R.id.tvCategory);
+            pronunciation = itemView.findViewById(R.id.tvPronunciation);
         }
     }
 
