@@ -1,2 +1,2 @@
-# INFS3605
-INFS3605 android application
+# Multilingue
+An android application that aims to raise social awarness of the First Nations People Language
