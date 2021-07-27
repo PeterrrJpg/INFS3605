@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class NgarigoInfoPage extends AppCompatActivity {
-    Button dictionary, photoEssay, riverConnection;
+    Button dictionary, photoEssay, riverConnection, champion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,14 @@ public class NgarigoInfoPage extends AppCompatActivity {
                 launchRiverConnection();
             }
         });
+
+        champion = findViewById(R.id.btNgarigoLink3);
+        champion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchChampion();
+            }
+        });
     }
 
     private void launchDictionary() {
@@ -53,6 +61,11 @@ public class NgarigoInfoPage extends AppCompatActivity {
 
     private void launchRiverConnection() {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://riversofcarbon.org.au/ngarigo-river-connections/"));
+        startActivity(intent);
+    }
+
+    private void launchChampion() {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://nit.com.au/ash-barty-proving-that-dreams-can-come-true/"));
         startActivity(intent);
     }
 }
