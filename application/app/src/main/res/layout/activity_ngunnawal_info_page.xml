@@ -35,7 +35,7 @@
             android:textColor="@color/white"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:text="The Ngunnawal people, also spelt Ngunawal, are an Aboriginal people of southern New South Wales and the Australian Capital Territory in Australia."
+            android:text="The Ngunnawal people, also spelt Ngunawal, are an Aboriginal people of southern New South Wales and the Australian Capital Territory in Australia. It is believed that the Ngunnawal people are the original inhabitants of the region known as Ngunnawal country and that they have lived here for more than 21 000 years. This is arguably one of longest periods of continual habitation anywhere on earth. The Ngunnawal people have developed a way of living and managing the natural resources of the land which has enabled this phenomenon. The Ngunnawal people are identified on Tindale's map of Aboriginal Tribes of Australia (1974). This widely recognised and authorative languages map is a representation of the language groups, or tribes, who inhabited Australia at the time of the new settlement in 1788."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -52,6 +52,87 @@
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         <TextView
+            android:id="@+id/textView101"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Clans"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/textView102"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Clans Within the Ngunnawal tribe there are known to be seven clans who lived in fairly specific localities. There is an obvious link between clan names and the modern names of the areas today. The Maloongoola lived in the Molongolo area, the Biyaligee, in the area of Pialligo, the Namitch or Namwitch lived in the area we know as Namadgi, the Cumbeyan lived in the Queanbeyan area, the Kanberri lived in the Belconnen area, the Toogoranoongh lived in Tuggeranong and the Woolobaloah lived in the Yass area."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView101"
+            app:layout_constraintTop_toBottomOf="@+id/textView101" />
+
+        <TextView
+            android:id="@+id/textView103"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Birrigai Rocks, Tidbinbilla and the Southern Alps"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView102" />
+
+        <TextView
+            android:id="@+id/textView104"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Certain places, such as museums, churches and houses of Parliament are generally believed to be places of social, cultural and/or spiritual significance for non-indigenous people. Similarly, there are places considered to be significant or sacred by the Ngunnawal people. These places include Birrigai, Tidbinbilla and the Southern Alps. Aboriginal people from the area made the annual trek to these places to engage in social, cultural and spiritual ceremonies and practices."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView103"
+            app:layout_constraintTop_toBottomOf="@+id/textView103" />
+
+        <TextView
+            android:id="@+id/textView105"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="River corridors as pathways"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView104" />
+
+        <TextView
+            android:id="@+id/textView106"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Ngunnawal country is a vast area with a wide variety of terrains and environments. People used natural features such as the stars and significant landmarks to navigate their way across the land. The Birrigai rocks were an important natural landmark for people making this journey. They followed river corridors including those of the Shoalhaven, Murrumbidgee, Molonglo and other rivers. The river corridors provided a wide variety of flora and fauna as a readily available food source."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView105"
+            app:layout_constraintTop_toBottomOf="@+id/textView105" />
+
+        <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,7 +142,7 @@
             android:textColor="@color/white"
             android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/textView106" />
 
         <TextView
             android:id="@+id/textView8"
@@ -120,16 +201,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-        <Button
-            android:id="@+id/btNgunnawalLink1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="Culture and heritage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btNgunnawalDictionary" />
-
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
@@ -156,6 +227,36 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <Button
+            android:id="@+id/btNgunnawalLink1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Culture and heritage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btNgunnawalDictionary" />
+
+        <Button
+            android:id="@+id/btNgunnawalLink2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="History of Canberra"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btNgunnawalLink1" />
+
+        <Button
+            android:id="@+id/btNgunnawalLink3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="The Living Language"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btNgunnawalLink2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
